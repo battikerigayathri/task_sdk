@@ -1,0 +1,8 @@
+{
+  "name": "task_sdk",
+  "version": "0.1.0",
+  "main": "pkg/task_sdk.js",
+  "files": [
+    "pkg/"
+  ]
+}

@@ -9,20 +9,22 @@
     <p>The Rust SDK is running behind the scenes!</p>
 
     <script type="module">
-      import init, { TaskManager } from "./pkg/task_sdk.js";
+      // This link points directly to the file you just pushed!
+      import init, {
+        TaskManager,
+      } from "https://cdn.jsdelivr.net/gh/battikerigayathri/task_sdk@main/pkg/task_sdk.js";
 
       async function run() {
-        // 1. Initialize the WASM file
+        // Initialize the Rust WASM engine
         await init();
 
-        // 2. Create the Manager
-        const manager = new TaskManager();
+        // Create the SDK manager
+        const sdk = new TaskManager();
 
-        // 3. Use your Rust functions
-        manager.add_task("Testing from the browser!");
-        manager.add_task("Rust is powering this logic");
-        console.log("--- Rust SDK Test ---");
-        console.log("JSON Data from Rust:", manager.get_tasks_json());
+        // Add a task using your Rust logic
+        sdk.add_task("Successfully linked to GitHub SDK!");
+
+        console.log("Tasks from GitHub:", sdk.get_tasks_json());
       }
 
       run();
