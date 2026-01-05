@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rust SDK Frontend Test</title>
+  </head>
+  <body>
+    <h1>Check the Console (F12)</h1>
+    <p>The Rust SDK is running behind the scenes!</p>
+
+    <script type="module">
+      import init, { TaskManager } from "./pkg/task_sdk.js";
+
+      async function run() {
+        // 1. Initialize the WASM file
+        await init();
+
+        // 2. Create the Manager
+        const manager = new TaskManager();
+
+        // 3. Use your Rust functions
+        manager.add_task("Testing from the browser!");
+        manager.add_task("Rust is powering this logic");
+        console.log("--- Rust SDK Test ---");
+        console.log("JSON Data from Rust:", manager.get_tasks_json());
+      }
+
+      run();
+    </script>
+  </body>
+</html>
