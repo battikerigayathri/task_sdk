@@ -1,0 +1,15 @@
+{
+  "name": "task_sdk",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "task_sdk_bg.wasm",
+    "task_sdk.js",
+    "task_sdk.d.ts"
+  ],
+  "main": "task_sdk.js",
+  "types": "task_sdk.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
