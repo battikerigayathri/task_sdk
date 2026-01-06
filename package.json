@@ -1,15 +1,13 @@
 {
   "name": "task_sdk",
   "version": "0.1.0",
-  "type": "module", 
+  "type": "module",
+  "main": "pkg/task_sdk.js",
+  "types": "pkg/task_sdk.d.ts",
   "files": [
-    "task_sdk_bg.wasm",
-    "task_sdk.js",
-    "task_sdk.d.ts"
+    "pkg/"
   ],
-  "main": "./task_sdk.js",
-  "types": "./task_sdk.d.ts",
   "exports": {
-    ".": "./task_sdk.js"
+    ".": "./pkg/task_sdk.js"
   }
 }
