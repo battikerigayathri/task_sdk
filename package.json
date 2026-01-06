@@ -5,7 +5,7 @@
   "types": "task_sdk.d.ts",
   "files": [
     "task_sdk.js",
-    "task_sdk.d.ts",
+    "task_sdk.d.ts", 
     "task_sdk_bg.wasm",
     "task_sdk_bg.wasm.d.ts"
   ]
