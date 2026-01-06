@@ -1,1 +1,2 @@
 /target
+echo "*.wasm" > pkg/.gitignore  # if you want to ignore the wasm file (not recommended)
