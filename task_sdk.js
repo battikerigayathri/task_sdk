@@ -149,6 +149,22 @@ class TaskManager {
         wasm.__wbg_taskmanager_free(ptr, 0);
     }
     /**
+     * @param {number} id
+     * @returns {boolean}
+     */
+    delete_task(id) {
+        const ret = wasm.taskmanager_delete_task(this.__wbg_ptr, id);
+        return ret !== 0;
+    }
+    /**
+     * @param {number} id
+     * @returns {boolean}
+     */
+    toggle_task(id) {
+        const ret = wasm.taskmanager_toggle_task(this.__wbg_ptr, id);
+        return ret !== 0;
+    }
+    /**
      * @returns {string}
      */
     get_tasks_json() {
@@ -162,6 +178,16 @@ class TaskManager {
         } finally {
             wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
         }
+    }
+    /**
+     * @param {string} json
+     * @returns {boolean}
+     */
+    load_tasks_from_json(json) {
+        const ptr0 = passStringToWasm0(json, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.taskmanager_load_tasks_from_json(this.__wbg_ptr, ptr0, len0);
+        return ret !== 0;
     }
     constructor() {
         const ret = wasm.taskmanager_new();
