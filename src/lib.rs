@@ -42,4 +42,31 @@ impl TaskManager {
     pub fn get_tasks_json(&self) -> String {
         serde_json::to_string(&self.tasks).unwrap_or_else(|_| "[]".to_string())
     }
+
+    // --- 1. UPDATE ---
+    pub fn toggle_task(&mut self, id: u32) -> bool {
+        if let Some(task) = self.tasks.iter_mut().find(|t| t.id == id) {
+            task.completed = !task.completed;
+            return true;
+        }
+        false
+    }
+
+    // --- 2. DELETE ---
+    pub fn delete_task(&mut self, id: u32) -> bool {
+        let initial_len = self.tasks.len();
+        self.tasks.retain(|t| t.id != id);
+        self.tasks.len() < initial_len
+    }
+
+    // --- 4. LOAD (Import) ---
+    pub fn load_tasks_from_json(&mut self, json: String) -> bool {
+        match serde_json::from_str::<Vec<Task>>(&json) {
+            Ok(loaded_tasks) => {
+                self.tasks = loaded_tasks;
+                true
+            }
+            Err(_) => false,
+        }
+    }
 }
